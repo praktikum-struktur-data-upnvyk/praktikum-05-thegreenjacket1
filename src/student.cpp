@@ -95,21 +95,17 @@ bool pop(Stack& s, int& nilai) {
 
 // SOAL 3
 void clear(Stack& s) {
-    Node* current = s.top;
-    while (current != nullptr) {
-        Node* temp = current;
-        current = current->next;
+    while (s.top != nullptr) {
+        Node* temp = s.top;
+        s.top = s.top->next;
         delete temp;
     }
-    s.top = nullptr;
 }
 
 // SOAL 4
 bool kurungSeimbang(const string& ekspresi) {
-    bool kurungSeimbang(const string& ekspresi) {
     Stack s;
     inisialisasi(s);
-
     for (char c : ekspresi) {
         if (c == '(' || c == '[' || c == '{') {
             push(s, (int)c);
